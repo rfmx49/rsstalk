@@ -1,0 +1,94 @@
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.w3.org/TR/speech-synthesis/synthesis.xsd"
+	xml:lang="en-US">
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-uk+f3">Hello, and welcome to, BBC News - Home <break strength="strong" /> The latest stories from the Home section of the BBC News web site.<break strength="strong" /> Here is the news from Today at 17 20.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-sc">From Today at 17 23 <break strength="strong" /> Royals sue over topless pictures.<break strength="strong" /> The Duke and Duchess of Cambridge have launched legal action against the French magazine Closer over its publication of topless pictures of the duchess, Clarence House says.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-uk+f3">From Today at 17 32 <break strength="strong" /> Anti-Islam film protests escalate.<break strength="strong" /> At least five people are killed as protests against a US-made film which mocks Islam spreads through the Muslim world and beyond.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en">From Today at 12 25 <break strength="strong" /> Alps attack girl returning to UK.<break strength="strong" /> A seven-year-old British girl who survived an attack in the French Alps in which three family members were shot dead has been released from hospital, police say.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-sc">From Today at 15 42 <break strength="strong" /> Woman arrested over car body find.<break strength="strong" /> A 32-year-old woman is arrested on suspicion of murder after a university graduate was found dead in a burning car in Somerset.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-uk+f3">From Today at 13 21 <break strength="strong" /> Cutty Sark revamp 'calamitous'.<break strength="strong" /> The restoration of the Cutty Sark is described as "damaging" by a heritage group as a bad design award is given to restorers.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en">From Today at 11 54 <break strength="strong" /> Scientologists 'in movie dispute'.<break strength="strong" /> Scientologists applied "lots of pressure" to derail the movie The Master, which was inspired by the religion's founder, film-makers claim.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-sc">From Today at 14 59 <break strength="strong" /> City trader 'gambled away' £1.4bn.<break strength="strong" /> A trader at a City of London bank "gambled away" £1.4bn of his firm's money and caused "chaos and disaster", a jury hears.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-uk+f3">From Today at 13 08 <break strength="strong" /> Hillsborough deaths case assessed.<break strength="strong" /> The police watchdog may be asked whether police officers involved in the Hillsborough disaster should face manslaughter investigations, it emerges.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en">From Today at 13 23 <break strength="strong" /> Pope's peace plea on Lebanon trip.<break strength="strong" /> Pope Benedict XVI arrives in Lebanon as a "pilgrim of peace", at a time when the country is divided over the conflict in neighbouring Syria.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-sc">From Today at 11 23 <break strength="strong" /> Top universities still have space.<break strength="strong" /> A quarter of universities in England's Russell Group still have vacancies, as the new tuition fees regime comes in.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-uk+f3">From Today at 13 12 <break strength="strong" /> Misconduct probe into police boss.<break strength="strong" /> The temporary chief constable of Cumbria Police is suspended after allegations of misconduct.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en">From Today at 16 25 <break strength="strong" /> Stock markets rise on US stimulus.<break strength="strong" /> Stock markets rise after the US Federal Reserve decides to pump more money into the economy, but fears over the eurozone resurface as reports of Spanish bailout talks are denied.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-sc">From Today at 13 48 <break strength="strong" /> Prisoners' TV channels revealed.<break strength="strong" /> Details of which TV channels prisoners can watch in their cells have been revealed, amid calls from a Tory MP for tighter restrictions.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-uk+f3">From Today at 10 30 <break strength="strong" /> Moyles says goodbye to breakfast.<break strength="strong" /> BBC Radio 1 DJ Chris Moyles says goodbye to listeners on his final Breakfast show, after eight years presenting the flagship programme.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en">From Today at 09 45 <break strength="strong" /> UK construction down 10% on year.<break strength="strong" /> Activity in the UK construction sector was down 10.1% in the year to July, according to official figures.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-sc">From Today at 06 54 <break strength="strong" /> RBS confirms Direct Line sale.<break strength="strong" /> RBS has announced it will sell its Direct Line insurance business and turn it into a separate public-listed company.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-uk+f3">From Today at 10 29 <break strength="strong" /> Tribunal payouts to be limited.<break strength="strong" /> Business Secretary Vince Cable has proposed a cut in how much workers can claim for unfair dismissal at employment tribunals.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en">From Today at 07 42 <break strength="strong" /> 'Benefit tourism' figure slashed.<break strength="strong" /> Iain Duncan Smith vows to fight EU proposals to allow more foreign nationals to claim benefits - but admits the likely bill for taxpayers is 92% lower than he previously claimed.</voice></prosody>
+
+
+	<prosody rate="default"><break strength="strong" /><voice name="en-uk+f3">Well, that does it for us here at, BBC News - Home <break strength="strong" /> Have a good day!</voice></prosody>
+	
+	<prosody rate="default"><break strength="strong" /><voice name="en-sc+f3">Posted at. Thursday September 13rd at 16, 25 <break strength="strong" /> Neil Armstrong remembrance held.<break strength="strong" /> Astronaut Neil Armstrong is remembered in a public memorial at Washington's National Cathedral, with his fellow Apollo 11 astronauts in attendance..</voice></prosody>
+
+	I am now <prosody rate=".42">speaking at 42% of normal speed.
+	<!-- Changing Voices -->
+	<prosody rate="default"><voice name="en+f4">Callie here, how are you? <break strength="strong" /> here is the news today.</voice></prosody>
+	This is the default voice. <break strength="x-strong" /> <voice name="en-no">This is David, hello how are you.</voice> <break strength="x-strong" /> This is the default again. <break strength="x-strong" /> <voice name="en+f3">Callie here.</voice>
+
+	<!-- Breaks in Voice -->
+	This is not <break strength="none" /> a pause. 
+	This is a <break strength="x-weak" /> phrase break. 
+	This is a <break strength="weak" /> phrase break. 
+	This is a <break strength="medium" /> sentence break. 
+	This is a <break strength="strong" /> paragraph break.
+	This is a <break strength="x-strong" /> strong break.
+	This is a <break time="3s" /> three second pause.
+	This is a <break time="4500ms" /> 4.5 second pause.
+	This is a <break /> sentence break.
+	
+	<!-- Adjusting Speech Rate -->
+	I am now <prosody rate="x-slow">speaking at half speed.</prosody>
+	I am now <prosody rate="slow">speaking at 2/3 speed.</prosody>
+	I am now <prosody rate="medium">speaking at normal speed.</prosody>
+	I am now <prosody rate="fast">speaking 33% faster.</prosody>
+	I am now <prosody rate="x-fast">speaking twice as fast</prosody>
+	I am now <prosody rate="default">speaking at normal speed.</prosody>
+	I am now <prosody rate=".42">speaking at 42% of normal speed.</prosody> Am I still speaking really slowly? Yes
+	I am now <prosody rate="2.8">speaking 2.8 times as fast</prosody> 
+	I am now <prosody rate="-0.3">speaking 30% more slowly.</prosody>
+	I am now <prosody rate="+0.3">speaking 30% faster.</prosody>
+</speak>
