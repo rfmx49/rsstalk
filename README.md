@@ -1,4 +1,3 @@
-rsstalk
-=======
+Rsstalk
 
-Read Rss feeds using espeak
+Speak an rss feed..
