@@ -17,7 +17,7 @@ creation () {
 		arroptions[3]=$(zenity --entry --title="What language?" \
 			--text="What languages would you like? Seperate with semicolon \n\n\
 			Ex. for english scotish english-female type\n\
-			en;en-sc;en+F3\n\n\
+			en;en-sc;en+f3\n\n\
 			To view full list press cancel." \
 			--entry-text="en;en-sc;en+f3")
 		if [ $? == "1" ]; then
@@ -61,7 +61,7 @@ xmlcreation () {
 	lang=`awk -v line=4 'NR==line{print;exit}' "$LOCATION/$1.conf"`
 	email=`awk -v line=5 'NR==line{print;exit}' "$LOCATION/$1.conf"`
 	password=`awk -v line=6 'NR==line{print;exit}' "$LOCATION/$1.conf"`
-	
+	maxitems=$[maxitems+2]
 	echo "Creating $feed at $link to get $maxitems items, will then speak in $lang. will email to $email with pw $password."
 	
 	#Create folder and get feed
@@ -87,7 +87,7 @@ xmlcreation () {
 	toread1=$(sed -n 's/.*<title>\(.*\)<\/title>.*/\1/gpi' "$LOCATION/$feed/$feed.xml" | awk -v line=1 'NR==line{print;exit}')
 	toread2=$(sed -n 's/.*<description>\([^\.]*\)[\.<].*\/description>.*/\1\./gpi' "$LOCATION/$feed/$feed.xml" | awk -v line=1 'NR==line{print;exit}')
 	toread3=$(sed -n 's/.*<lastBuildDate>\(.*\)<\/lastBuildDate>.*/\1/gpi' "$LOCATION/$feed/$feed.xml" | awk -v line=1 'NR==line{print;exit}')
-	if [ -z $toread3 ]; then
+	if [ -z "$toread3" ]; then
 		echo "no lastbuilddate found"
 		toread3="today"
 	else	
@@ -96,11 +96,11 @@ xmlcreation () {
 	fi
 
 	#XML file write
-	towrite='\n\t<prosody rate="default"><break strength="strong" /><voice name="'"${langs[$x]}"'">Hello, and welcome to, '"$toread1"' <break strength="strong" /> '"$toread2"'.<break strength="strong" /> Here is the news from '"$toread3"'.</voice></prosody>'
+	towrite='\n\t<voice name="'"${langs[$x]}"'">"Hello, and welcome to, '"$toread1"' <break time="800ms" /> '"$toread2"'. Here is the news from '"$toread3"'."</voice>'
 	echo -e "$towrite" >> "$LOCATION/$feed/read$feed.xml"
 	
 	##ending will be written at end.
-	endingwrite='\n\n\t<prosody rate="default"><break strength="strong" /><voice name="'"${langs[$x]}"'">Well, that does it for us here at, '"$toread1"' <break strength="strong" /> Have a good day!</voice></prosody>'
+	endingwrite='\n\n\t<voice name="'"${langs[$x]}"'">"Well, that does it for us here at, '"$toread1"' Have a good day! <break time="600ms" /> Good-bye"</voice>'
 
 	#time to get articles	
 	numberofposts=$(sed -n 's/.*<title>\(.*\)<\/title>.*/\1/gpi' "$LOCATION/$feed/$feed.xml" | grep -c ".*")
@@ -112,19 +112,26 @@ xmlcreation () {
 	done="no"
 	#DEBUG i=3
 	i=3
-	x=1
+	x=0
 	while [ $done != "yes" ]; do
 		toread1=$(sed -n 's/.*<title>\(.*\)<\/title>.*/\1/gpi' "$LOCATION/$feed/$feed.xml" | awk -v line=$i 'NR==line{print;exit}')
-		#title quick clean		
+		#title quick clean
 		toread1=`echo "$toread1" | sed -e 's/&quot;//gi' -e 's/<[^>]*>//gi' -e 's/amp;//gi'`
 		toread2=$(sed -n 's/.*<description>\(.*\)<\/description>.*/\1/gpi' "$LOCATION/$feed/$feed.xml" | awk -v line=$[i-1] 'NR==line{print;exit}')
 		toread3=$(sed -n 's/.*<pubDate>\(.*\)<\/pubDate>.*/\1/gpi' "$LOCATION/$feed/$feed.xml" | awk -v line=$[i-2] 'NR==line{print;exit}')
 		cleandate "$toread3"
 		toread3=$cleaneddate
 		cleandesc "$toread2"
-		toread2="$description"				
+		toread2="$description"
+		if [ -z "$toread2" ]; then
+			echo "to work with $toread2"
+			toread2=$(cat "$LOCATION/$feed/$feed.xml" | tr "\n" " " | tr "\t" " " |  sed -e 's/>[ ]*</></g' -e 's/<\/item>/&\t\n/gi' | grep -m $[i-2] "<item>" | awk -v line=$[i-2] 'NR==line{print;exit}' | sed -n 's/.*<p>\(.*\)<\/p>.*/\1/gpi')
+			toread2=$(echo "$toread2" | tr "\n" " ")
+			cleandesc "$toread2"
+			toread2="$description"
+		fi	
 		#XML file write 3 date 1 title 2 desc
-		towrite='\n\n\t<prosody rate="default"><break strength="strong" /><voice name="'"${langs[$x]}"'">From '"$toread3"' <break strength="strong" /> '"$toread1"'.<break strength="strong" /> '"$toread2"'.</voice></prosody>'
+		towrite='\n\n\t<voice name="'"${langs[$x]}"'">"From '"$toread3"' <break time="600ms" /> '"$toread1"'. '"$toread2"'."</voice>'
 		echo -e "$towrite" >> "$LOCATION/$feed/read$feed.xml"
 		
 		#next language		
@@ -152,9 +159,9 @@ xmlcreation () {
 	#save and convert
 	clear
 	echo "Speaking to file..."
-	espeak -mf "$LOCATION/$feed/read$feed.xml" -w "$LOCATION/$feed/$feed.wav"
+	espeak -mf "$LOCATION/$feed/read$feed.xml" -s 160 -w "$LOCATION/$feed/$feed.wav"
 	echo "Converting to mp3..."
-	avconv -b 64k -i "$LOCATION/$feed/$feed.wav" "$LOCATION/$feed/$feed.mp3"
+	avconv -b 64 -i "$LOCATION/$feed/$feed.wav" "$LOCATION/$feed/$feed.mp3"
 	rm "$LOCATION/$feed/$feed.wav"
 	
 }
@@ -318,15 +325,15 @@ cleandate () {
 	#gets minute
 	minute=$(echo $date | sed -ne 's/.*:\([0-9][0-9]\):.*/\1/pi')
 	getnumberth2 $daynumber
-	cleaneddate="$dayname2 $numberth at $hour $minute"
+	cleaneddate="$dayname2 $numberth at: $hour $minute"
 	#more informal also took out $monthname2 from output
 	if [ "$dayname2" = "`date +%A`" ]; then
 		dayname2="Today"
-		cleaneddate="$dayname2 at $hour $minute"
+		cleaneddate="$dayname2 at: $hour $minute"
 	fi
 	if [ "$dayname2" = "`date -d '1 day ago' +%A`" ]; then 
 		dayname2="Yesterday"
-		cleaneddate="$dayname2 at $hour $minute"
+		cleaneddate="$dayname2 at: $hour $minute"
 	fi
 	echo $cleaneddate
 }
@@ -398,7 +405,7 @@ softwarecheck () {
 	fi
 
 	echo "Checking for ffmpeg"
-	swcheck=$(ffmpeg --version)	
+	swcheck=$(ffmpeg -v)	
 	if [ -z "$swcheck" ]; then		
 		zenity --question --text="ffmpeg not instaled correctly:\n\nffmpeg command not found\n\nDo you want to skip this check?\n\n\nChoose no for an option to install software"
 		if [ $? == "1" ]; then
